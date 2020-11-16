@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
+@import url('//db.onlinewebfonts.com/c/2303f3594424ab346f843c144d3c6434?family=Toxigenesis+Lt');
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    background-color: #ebefff;
+    overflow: hidden;
+    font-family: Oswald, sans-serif;
+    cursor: url('../media/cursorgrey.png'),pointer;
+}
+.logo{
+    position: absolute;
+    top: 0vh;
+    left:0 ;
+    height: 10vh;
+    width:5vw;
+    background: url('../media/iPaintLogo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 12;    
+}
+.topbar{
+ position: absolute;
+ height: 5vh;
+ left: 10vw;
+ width: 84vw;
+ top: 1vh;
+ border-radius: 15px;
+ background: linear-gradient(145deg, #949292, #7c7a7a);
+ box-shadow:  5px 5px 0px #7f7d7d, 
+ -2px -2px 0px #959393;
+    display: flex;
+    justify-content: center;
+}
+ .topbar .fas,
+ .topbar .far {
+  font-size: 25px;
+  position: relative;
+  top: 8px;  
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  width: 40px;
+  text-align: center;  
+  background: linear-gradient(145deg, #494949, #4b4b4b);
+  box-shadow:  2px 2px 0px #505050, 
+    -2px -2px 0px #575656;
+  transition: all 0.3s;  
+}
+.fas:hover,
+.far:hover {
+  filter: brightness(90%);
+  box-shadow:  1px 1px 0px #797777, 
+  -1px -1px 0px #727171;
+}
+.fa-fill-drip {
+    cursor: default;
+  }
+  .fa-undo-alt:hover,
+.fa-trash-alt:hover {
+  color: rgb(223, 37, 37);
+}
+.active-tool {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.active-tool > span {
+    background-color: rgb(82, 82, 82);
+    border-radius: 12px;
+    padding: 5.5px 20px 6.5px 20px;
+    color: white;
+    font-size: 22px;
+    user-select: none;
+    box-shadow:  2px 2px 0px #353535, 
+    -2px -2px 0px rgb(36, 35, 35);
+}
+.tool {
+    position: relative;
+    top: 3px;
+    margin-left: 15px;
+}
+.brush {
+    background-color: rgb(114, 114, 114);
+    height: 48px;
+    width: 440px;
+    border-radius: 12px;
+    top: 3.0px;
+    position: relative;
+    
+}
+.brush > * {
+    margin-left: 10px;
+}
+.size {
+    width: 45px;
+    height: 50px;
+    position: relative;
+    top: 8.0px;    
+    background-color:#494949;
+    border-radius: 5px;
+    padding: 4.5px 12px;
+    color: white;
+    font-size: 20px;
+    user-select: none;
+}
+.slider{
+    -webkit-appearance: none;
+    position: relative;
+    left: -2px;
+    width: 120px;
+    height: 10px;
+    top: 3px;
+    background: rgb(177, 177, 177);
+    outline: none;
+    opacity: 0.7;
+    cursor: pointer;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+}
+  
+.slider:hover {
+    opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background: rgb(47, 47, 47);
+}
+.jscolor {
+    border-style: solid;
+    border-radius: 5px;
+    height: 35px;
+    width: 120px;
+    margin-left: 3px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    top: 3.3px;
+    background-color: #ebefff;
+    font-size: 20px;
+    color: black;
+}
+canvas#canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    cursor: crosshair;
+    border-bottom-right-radius: 41px;
+    border-top-left-radius: 41px;
+    z-index: 1;    
+  }
+.paintboard{
+ height: 90vh;
+ width: 94vw;
+ position: absolute; 
+ bottom: 2vh;
+ left: 3vw;
+ right: 3vw;
+ border-bottom-right-radius: 35px;
+ border-top-left-radius: 46px;
+ background: #ebefff;
+ box-shadow: inset 7px 7px 10px #ffffff, 
+    inset -7px -7px 10px #ffffff;
+    border: 5px solid rgb(78, 78, 78);    
+    overflow-x: hidden;    
+}
+.paintboard::-webkit-scrollbar{
+    width: 15px;
+}
+.paintboard::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;    
+    border-bottom-right-radius: 41px;
+    background:linear-gradient(to bottom,transparent 0%, rgb(153, 153, 153) 20%, rgb(184, 183, 183) 80%);
+    border-top-left-radius: 41px;    
+    border-left: 5px solid rgb(77, 76, 76);
+    border-bottom: 5px solid rgb(78, 77, 77);
+
+}
+.paintboard::-webkit-scrollbar-thumb {
+    background:black; 
+    border-bottom-right-radius:41px;  
+    border-top-left-radius:41px;  
+    background: linear-gradient(to bottom,rgb(90,90,90) 0%,rgb(71,71,71) 10%,rgb(50,50,50) 60%,black 100%);
+}
+.addpage{
+ position: fixed;
+ top: 95%;
+ left: 50%;
+ transform: translate(-50%,-50%);
+ z-index: 1000;
+ 
+}
+.addpage .fas{
+font-size: 80px;
+background:linear-gradient(to bottom right,rgb(212, 100, 100) 0%,rgb(135, 185, 135) 50%,rgb(92, 92, 107) 100%);
+color:rgb(82, 81, 81);
+box-shadow:  5px 5px 0px #7f7d7d, 
+ -2px -2px 0px #959393;
+ border-radius: 14px;
+
+}
+.addpage .fas:hover{
+    box-shadow:  0px 0px 0px #7f7d7d, 
+ -0px -0px 0px #959393;
+ 
+}
+/* Mobile Message */
+.mobile-message {
+    display: none;
+}
+  
+  /* Media Query: Mobile Devices */
+ @media screen and (max-width: 800px) {
+
+    .mobile-message {
+      position: absolute;
+      height: 100%;
+      width: 100%;      
+      background-color: rgb(0, 0, 0);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* text-align: center; */
+      /* display: block; */
+      z-index: 100;
+      font-size: 32px;
+    }
+    .paintboard{
+        display: none;
+    }
+    .topbar{
+        display: none;
+    }
+}
+  
