@@ -77,8 +77,8 @@ function switchToBrush() {
 
 // Create Canvas
 function createCanvas() {
-  canvas.width = window.innerWidth-136;
-  canvas.height =size*(window.innerHeight-117);  //116
+  canvas.width = window.innerWidth-126;
+  canvas.height =size*(window.innerHeight-107);  //116
   context.fillStyle = bucketColor;    
   context.fillRect(0,0,canvas.width,canvas.height);
   var paintboard=document.getElementById('paintboard');
