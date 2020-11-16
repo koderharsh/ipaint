@@ -10,4 +10,4 @@ dynamically increased. Whatever component is active can be seen.
 
 ## See it in action
 
-koderharsh.github.io/ipaint/paint.html
+https://koderharsh.github.io/ipaint/paint.html
